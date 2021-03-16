@@ -7,3 +7,8 @@ C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.
 C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.csproj.CoreCompileInputs.cache
 C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.exe
 C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.pdb
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.Form1.resources
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\bin\Debug\QuizGameLibrary.dll
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\bin\Debug\QuizGameLibrary.pdb
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.csproj.CopyComplete
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.testform.resources
