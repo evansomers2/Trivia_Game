@@ -1,0 +1,6 @@
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\bin\Debug\QuizGameLibrary.dll
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\bin\Debug\QuizGameLibrary.pdb
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\obj\Debug\QuizGameLibrary.csprojAssemblyReference.cache
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\obj\Debug\QuizGameLibrary.csproj.CoreCompileInputs.cache
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\obj\Debug\QuizGameLibrary.dll
+C:\$Info5060\projects\QuizGame\Project2\QuizGameLibrary\obj\Debug\QuizGameLibrary.pdb

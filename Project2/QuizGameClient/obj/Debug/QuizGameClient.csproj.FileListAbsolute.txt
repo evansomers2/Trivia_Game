@@ -1,0 +1,9 @@
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\bin\Debug\QuizGameClient.exe.config
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\bin\Debug\QuizGameClient.exe
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\bin\Debug\QuizGameClient.pdb
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.csprojAssemblyReference.cache
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.Properties.Resources.resources
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.csproj.GenerateResource.cache
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.csproj.CoreCompileInputs.cache
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.exe
+C:\$Info5060\projects\QuizGame\Project2\QuizGameClient\obj\Debug\QuizGameClient.pdb
