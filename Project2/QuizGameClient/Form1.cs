@@ -57,7 +57,23 @@ namespace QuizGameClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = game.GetQuestion().Question;
+            QuizQuestion question = game.GetQuestion();
+            QuestionLabel.Text = question.Question;
+            AnswerAButton.Text = question.AnswerA;
+            AnswerBButton.Text = question.AnswerB;
+            AnswerCButton.Text = question.AnswerC;
+            AnswerDButton.Text = question.AnswerD;
+
+        }
+
+        private void QuestionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AnswerBButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
