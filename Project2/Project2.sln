@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizGameLibrary", "QuizGameLibrary\QuizGameLibrary.csproj", "{0A738BC2-A62B-453B-993C-6AC1F0159905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizGameHost", "QuizGameHost\QuizGameHost.csproj", "{89035F13-C6EC-4482-8626-FBF5C83C844A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A738BC2-A62B-453B-993C-6AC1F0159905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A738BC2-A62B-453B-993C-6AC1F0159905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A738BC2-A62B-453B-993C-6AC1F0159905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A738BC2-A62B-453B-993C-6AC1F0159905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89035F13-C6EC-4482-8626-FBF5C83C844A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89035F13-C6EC-4482-8626-FBF5C83C844A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89035F13-C6EC-4482-8626-FBF5C83C844A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89035F13-C6EC-4482-8626-FBF5C83C844A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51CCC41D-DBA0-43AC-A69A-800AB220D760}
+	EndGlobalSection
+EndGlobal
