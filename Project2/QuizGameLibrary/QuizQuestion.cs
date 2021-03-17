@@ -13,13 +13,13 @@ namespace QuizGameLibrary
         [DataMember]
         public string Question { get; set; }
         [DataMember]
-        private string AnswerA { get; set; }
+        public string AnswerA { get; set; }
         [DataMember]
-        private string AnswerB { get; set; }
+        public string AnswerB { get; set; }
         [DataMember]
-        private string AnswerC { get; set; }
+        public string AnswerC { get; set; }
         [DataMember]
-        private string AnswerD { get; set; }
+        public string AnswerD { get; set; }
 
         private string CorrectAnswer { get; set; }
 
