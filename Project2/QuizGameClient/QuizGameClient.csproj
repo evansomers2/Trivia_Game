@@ -53,6 +53,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameBoardScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameBoardScreen.Designer.cs">
+      <DependentUpon>GameBoardScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LobbyScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LobbyScreen.Designer.cs">
+      <DependentUpon>LobbyScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testform.cs">
@@ -63,6 +87,18 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameBoardScreen.resx">
+      <DependentUpon>GameBoardScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LobbyScreen.resx">
+      <DependentUpon>LobbyScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
