@@ -12,6 +12,10 @@ namespace QuizGameClient
 {
     public partial class GameBoardScreen : Form
     {
+        ChannelFactory<IQuizGame> channel;
+        IQuizGame game;
+        List<Player> players;
+
         public GameBoardScreen()
         {
             InitializeComponent();

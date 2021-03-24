@@ -12,9 +12,13 @@ namespace QuizGameClient
 {
     public partial class LobbyScreen : Form
     {
-        public LobbyScreen()
+
+
+        private string Username;
+        public LobbyScreen(string userName)
         {
             InitializeComponent();
+            Username = userName;
         }
 
         private void btn_Ready_Click(object sender, EventArgs e)

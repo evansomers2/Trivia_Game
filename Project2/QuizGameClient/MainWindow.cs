@@ -13,7 +13,8 @@ namespace QuizGameClient
     public partial class MainWindow : Form
     {
 
-        // Contoller
+        // GameState
+        
 
         // Windows
         private Form LoginScreen;
