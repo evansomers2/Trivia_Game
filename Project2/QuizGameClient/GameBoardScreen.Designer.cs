@@ -30,47 +30,48 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_gameTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label_question = new System.Windows.Forms.Label();
+            this.btn_answer1 = new System.Windows.Forms.Button();
+            this.btn_answer2 = new System.Windows.Forms.Button();
+            this.btn_answer3 = new System.Windows.Forms.Button();
+            this.btn_answer4 = new System.Windows.Forms.Button();
+            this.label_Countdown = new System.Windows.Forms.Label();
+            this.dataGrid_scoreBoard = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_scoreBoard)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.625F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.375F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.53998F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.46002F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 336F));
             this.tableLayoutPanel1.Controls.Add(this.label_gameTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGrid_scoreBoard, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label_Countdown, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.33334F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 692);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label_gameTitle
             // 
             this.label_gameTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_gameTitle.AutoSize = true;
             this.label_gameTitle.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_gameTitle.Location = new System.Drawing.Point(274, 4);
+            this.label_gameTitle.Location = new System.Drawing.Point(315, 7);
+            this.label_gameTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_gameTitle.Name = "label_gameTitle";
-            this.label_gameTitle.Size = new System.Drawing.Size(261, 44);
+            this.label_gameTitle.Size = new System.Drawing.Size(392, 65);
             this.label_gameTitle.TabIndex = 0;
             this.label_gameTitle.Text = "TRIVIA GAME";
             // 
@@ -79,97 +80,114 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button4, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label_question, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_answer1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btn_answer2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btn_answer3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btn_answer4, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(237, 55);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(164, 85);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.35484F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.64516F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(336, 300);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.59184F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.40816F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(695, 461);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label1
+            // label_question
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label_question.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_question.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this.label_question, 2);
+            this.label_question.Location = new System.Drawing.Point(103, 48);
+            this.label_question.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_question.Name = "label_question";
+            this.label_question.Size = new System.Drawing.Size(488, 20);
+            this.label_question.TabIndex = 0;
+            this.label_question.Text = "Question: This is a sample question, select the correct answer below";
             // 
-            // label2
+            // btn_answer1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.btn_answer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_answer1.Location = new System.Drawing.Point(25, 142);
+            this.btn_answer1.Margin = new System.Windows.Forms.Padding(25);
+            this.btn_answer1.Name = "btn_answer1";
+            this.btn_answer1.Size = new System.Drawing.Size(297, 128);
+            this.btn_answer1.TabIndex = 1;
+            this.btn_answer1.Text = "ANSWER ONE";
+            this.btn_answer1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_answer2
             // 
-            this.button1.Location = new System.Drawing.Point(3, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_answer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_answer2.Location = new System.Drawing.Point(372, 142);
+            this.btn_answer2.Margin = new System.Windows.Forms.Padding(25);
+            this.btn_answer2.Name = "btn_answer2";
+            this.btn_answer2.Size = new System.Drawing.Size(298, 128);
+            this.btn_answer2.TabIndex = 2;
+            this.btn_answer2.Text = "ANSWER TWO";
+            this.btn_answer2.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_answer3
             // 
-            this.button2.Location = new System.Drawing.Point(171, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_answer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_answer3.Location = new System.Drawing.Point(25, 320);
+            this.btn_answer3.Margin = new System.Windows.Forms.Padding(25);
+            this.btn_answer3.Name = "btn_answer3";
+            this.btn_answer3.Size = new System.Drawing.Size(297, 116);
+            this.btn_answer3.TabIndex = 3;
+            this.btn_answer3.Text = "ANSWER THREE";
+            this.btn_answer3.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_answer4
             // 
-            this.button3.Location = new System.Drawing.Point(3, 216);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_answer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_answer4.Location = new System.Drawing.Point(372, 320);
+            this.btn_answer4.Margin = new System.Windows.Forms.Padding(25);
+            this.btn_answer4.Name = "btn_answer4";
+            this.btn_answer4.Size = new System.Drawing.Size(298, 116);
+            this.btn_answer4.TabIndex = 4;
+            this.btn_answer4.Text = "ANWSER FOUR";
+            this.btn_answer4.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // label_Countdown
             // 
-            this.button4.Location = new System.Drawing.Point(171, 216);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label_Countdown.AutoSize = true;
+            this.label_Countdown.Location = new System.Drawing.Point(4, 0);
+            this.label_Countdown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Countdown.Name = "label_Countdown";
+            this.label_Countdown.Size = new System.Drawing.Size(120, 20);
+            this.label_Countdown.TabIndex = 2;
+            this.label_Countdown.Text = "Countdown: XX";
             // 
-            // dataGridView1
+            // dataGrid_scoreBoard
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(579, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(218, 300);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGrid_scoreBoard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_scoreBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGrid_scoreBoard.Location = new System.Drawing.Point(867, 85);
+            this.dataGrid_scoreBoard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGrid_scoreBoard.Name = "dataGrid_scoreBoard";
+            this.dataGrid_scoreBoard.RowHeadersWidth = 62;
+            this.dataGrid_scoreBoard.Size = new System.Drawing.Size(329, 461);
+            this.dataGrid_scoreBoard.TabIndex = 3;
             // 
             // GameBoardScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "GameBoardScreen";
             this.Text = "GameBoardScreen";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_scoreBoard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,12 +197,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label_gameTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label_question;
+        private System.Windows.Forms.Button btn_answer1;
+        private System.Windows.Forms.Button btn_answer2;
+        private System.Windows.Forms.Button btn_answer3;
+        private System.Windows.Forms.Button btn_answer4;
+        private System.Windows.Forms.Label label_Countdown;
+        private System.Windows.Forms.DataGridView dataGrid_scoreBoard;
     }
 }
