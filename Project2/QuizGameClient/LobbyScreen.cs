@@ -47,19 +47,19 @@ namespace QuizGameClient
 
         private void btn_Ready_Click(object sender, EventArgs e)
         {
-                       
-            //// Build the login screen
-            //GameBoardScreen gameBoard = new GameBoardScreen(players);
-            //gameBoard.TopLevel = false;
-            //gameBoard.AutoScroll = true;
-            //gameBoard.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
-            //gameBoard.FormBorderStyle = FormBorderStyle.None;
-            //gameBoard.Dock = DockStyle.Fill;
 
-            //// Add to the controls and display
-            //Controls.Clear();
-            //Controls.Add(gameBoard);
-            //gameBoard.Show();
+            // Build the login screen
+            GameBoardScreen gameBoard = new GameBoardScreen(players);
+            gameBoard.TopLevel = false;
+            gameBoard.AutoScroll = true;
+            gameBoard.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;
+            gameBoard.FormBorderStyle = FormBorderStyle.None;
+            gameBoard.Dock = DockStyle.Fill;
+
+            // Add to the controls and display
+            Controls.Clear();
+            Controls.Add(gameBoard);
+            gameBoard.Show();
         }
     }
 }

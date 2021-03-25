@@ -20,7 +20,8 @@ namespace QuizGameClient
             InitializeComponent();
         }
 
-        // Connect button click, loads lobby
+        // Connect button click, loads lobby, need to hook this up
+        // will do after reviewing notes 
         private void btn_Connect_Click(object sender, EventArgs e)
         {
             string name = textBox_userName.Text;
