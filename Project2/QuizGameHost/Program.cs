@@ -14,27 +14,46 @@ namespace QuizGameHost
         {
             ServiceHost servHost = null;
 
-            try
-            {
-                // Register the service Address
-                //servHost = new ServiceHost(typeof(Shoe), new Uri("net.tcp://localhost:13200/CardsLibrary/"));
+            //try
+            //{
+            //    // Register the service Address
+            //    //servHost = new ServiceHost(typeof(Shoe), new Uri("net.tcp://localhost:13200/CardsLibrary/"));
+
+            //    // Register the service Contract and Binding
+            //    //servHost.AddServiceEndpoint(typeof(IShoe), new NetTcpBinding(), "ShoeService");
+
+            //    servHost = new ServiceHost(typeof(QuizGame));
+            //    // Run the service
+            //    servHost.Open();
+
+            //    Console.WriteLine("Service started. Press any key to quit.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //finally
+            //{
+            //    // Wait for a keystroke
+            //    Console.ReadKey();
+            //    servHost?.Close();
+            //}
+
+            try {
+                servHost = new ServiceHost(typeof(QuizGame), new Uri("net.tcp://localhost:5000/QuizGameLibrary/"));
 
                 // Register the service Contract and Binding
-                //servHost.AddServiceEndpoint(typeof(IShoe), new NetTcpBinding(), "ShoeService");
+                servHost.AddServiceEndpoint(typeof(IQuizGame), new NetTcpBinding(), "QuizService");
 
-                servHost = new ServiceHost(typeof(QuizGame));
                 // Run the service
                 servHost.Open();
-
-                Console.WriteLine("Service started. Press any key to quit.");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                // Wait for a keystroke
+            finally {
+                // Wait the application wait for a keystroke
+                Console.WriteLine("Service started. Press any key to quit.");
                 Console.ReadKey();
                 servHost?.Close();
             }

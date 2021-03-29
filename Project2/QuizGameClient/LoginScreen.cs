@@ -24,16 +24,17 @@ namespace QuizGameClient
         // will do after reviewing notes 
         private void btn_Connect_Click(object sender, EventArgs e)
         {
-            string name = textBox_userName.Text;
+
             // Validate the users name
-            if (name.Equals(""))
+            string userName = textBox_userName.Text;
+            if (userName.Equals(""))
             {
                 MessageBox.Show("Enter valid username");
                 return;
             }
-            // get the user name
-            string username = textBox_userName.Text;
-            Form lobby = new LobbyScreen(name);
+
+            // Get the user name
+            Form lobby = new LobbyScreen(userName);
             lobby.TopLevel = false;
             lobby.AutoScroll = true;
             lobby.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;

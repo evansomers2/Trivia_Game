@@ -11,6 +11,7 @@ namespace QuizGameLibrary
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class QuizGame : IQuizGame
     {
+        // Member variables
         List<Player> Players;
         List<QuizQuestion> Questions = new List<QuizQuestion>();
         

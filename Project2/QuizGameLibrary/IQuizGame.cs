@@ -14,5 +14,8 @@ namespace QuizGameLibrary
         string ConnectToGame(string name);
         [OperationContract]
         QuizQuestion GetQuestion();
+
+     
+
     }
 }

@@ -12,13 +12,6 @@ namespace QuizGameClient
 {
     public partial class MainWindow : Form
     {
-
-        // GameState
-        
-
-        // Windows
-        private Form LoginScreen;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +22,7 @@ namespace QuizGameClient
             MaximizeBox = false;
 
             // Build the login screen
-            LoginScreen = new LoginScreen();
+            Form LoginScreen = new LoginScreen();
             LoginScreen.TopLevel = false;
             LoginScreen.AutoScroll = true;
             LoginScreen.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left;

@@ -18,10 +18,9 @@ namespace QuizGameClient
         IQuizGame game;
         List<Player> players;
 
-        private string Username;
         public LobbyScreen(string userName)
         {
-            // Initialize components
+            // Initialize 
             InitializeComponent();
             players = new List<Player>();
 
