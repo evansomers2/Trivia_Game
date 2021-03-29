@@ -40,7 +40,7 @@ namespace QuizGameClient
             }
             else
             {
-                label1.Text = game.ConnectToGame(textBox1.Text);
+                //label1.Text = game.Join(textBox1.Text);
                 players.Add(new Player(textBox1.Text));
                 label3.Show();
                 textBox1.Hide();

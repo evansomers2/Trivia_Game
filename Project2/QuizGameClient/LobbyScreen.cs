@@ -12,36 +12,58 @@ using QuizGameLibrary;
 
 namespace QuizGameClient
 {
-    public partial class LobbyScreen : Form
+    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, UseSynchronizationContext = false)]
+    public partial class LobbyScreen : Form, ICallback
     {
-        ChannelFactory<IQuizGame> channel;
-        IQuizGame game;
-        List<Player> players;
+        // Properties
+        private IQuizGame game;
+        private List<Player> players;
 
+        // Constructor
         public LobbyScreen(string userName)
         {
             // Initialize 
             InitializeComponent();
             players = new List<Player>();
 
-            // Connections
-            channel = new ChannelFactory<IQuizGame>("TriviaService");
+            // Setup the ABC's of the TriviaService 
+            DuplexChannelFactory<IQuizGame> channel = new DuplexChannelFactory<IQuizGame>(this, "TriviaService");
+            
+            // Activate a Quizgame object 
             game = channel.CreateChannel();
+
+            if (game.Join("JAMES")) {
+                // Alias accepted by the service so update GUI
+                //listMessages.ItemsSource = msgBrd.GetAllMessages();
+                //textAlias.IsEnabled = buttonSet.IsEnabled = false;
+            }
+            else {
+                // Alias rejected by the service so nullify service proxies
+                game = null;
+                MessageBox.Show("ERROR: Alias in use. Please try again.");
+            }
+
+            // Connect player to the game
+            //game.ConnectToGame(userName);
+            //players.Add(new Player(userName));
+            //dataGrid_lobby.Refresh();
 
 
             // Set up data grid
-            dataGrid_lobby.DataSource = players;
-            DataGridViewColumn column1 = dataGrid_lobby.Columns[0];
-            column1.Width = 80;
-            DataGridViewColumn column2 = dataGrid_lobby.Columns[1];
-            column2.Width = 80;
-
-            // Connect player to the game
-            game.ConnectToGame(userName);
-            players.Add(new Player(userName));
-            dataGrid_lobby.Refresh();
+            //dataGrid_lobby.DataSource = players;
+            //DataGridViewColumn column1 = dataGrid_lobby.Columns[0];
+            //column1.Width = 80;
+            //DataGridViewColumn column2 = dataGrid_lobby.Columns[1];
+            //column2.Width = 80;
 
 
+
+
+        }
+
+        public void SendAllMessages(string[] messages)
+        {
+            throw new NotImplementedException();
         }
 
         private void btn_Ready_Click(object sender, EventArgs e)
