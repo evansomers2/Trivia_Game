@@ -15,12 +15,17 @@ namespace QuizGameLibrary
 
         [DataMember]
         public QuizQuestion CurrentQuestion;
-        
-        // 
+
+        [DataMember]
+        public bool IsReady;
+
+        [DataMember]
+        public string LogMessage;
 
         public GameState()
         {
             Players = new List<Player>();
+            IsReady = false;
         }
     }
 }

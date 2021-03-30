@@ -41,7 +41,11 @@ namespace QuizGameLibrary
                 callbacks.Add(name.ToUpper(), cb);
                 
                 this.state.Players.Add(new Player(name.ToUpper()));
+                //setting state log message for clients to receive
+                state.LogMessage = name + " has connected!";
+                Console.WriteLine(name + " has connected!");
                 //state.Players = Players;
+                //update all clients
                 updateAllUsers();
                 return state;
             }
@@ -90,23 +94,43 @@ namespace QuizGameLibrary
         //    return users;
         //}
 
-        public bool PlayerReady(GameState state)
+        public bool PlayerReady(string name)
         {
-            this.state = state;
+
+            Console.WriteLine(name + " has readied up!");
+            //setting the player to ready based off their name
+            foreach(Player player in state.Players)
+            {
+                if(name == player.Name)
+                {
+                    player.IsReady = true;
+                    
+                }
+            }
+            
             // Check if all players are ready
-            bool isReady = true;
+            //bool isReady = true;
+            state.IsReady = true;
             foreach (var p in state.Players){
                 if (!p.IsReady)
-                    isReady = false;
+                    state.IsReady = false;
             }
-            updateAllUsers();
-            if (isReady)
+            
+            if (state.IsReady)
             {
+                //get question to send to all clients
+                state.CurrentQuestion = GetQuestion();
+                //update all clients
+                updateAllUsers();
                 Console.WriteLine("ALL USERS ARE READY");
                 return true;
             }
             else
             {
+                //setting state log message for clients to receive
+                state.LogMessage = name + " has readied up!";
+                //update all clients
+                updateAllUsers();
                 return false;
             }
 

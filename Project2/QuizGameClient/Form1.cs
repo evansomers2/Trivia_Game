@@ -19,6 +19,7 @@ namespace QuizGameClient
         ChannelFactory<IQuizGame> channel;
         IQuizGame game;
         List<Player> players;
+        List<String> gameLog;
 
         private GameState state;
         private string currentPlayer;
@@ -34,7 +35,10 @@ namespace QuizGameClient
             game = channel.CreateChannel();
             //state = new GameState();
             //state.Players = new List<Player>();
+            gameLog = new List<string>();
 
+            gameLog.Add("Welcome to the Trivia Game!");
+            listBox1.DataSource = gameLog;
             label_ScoreBoard.Hide();
             dataGridView1.Hide();
             ///dataGridView1.DataSource = state.Players;
@@ -49,12 +53,13 @@ namespace QuizGameClient
         {
 
             if (button_Join.Text == "Ready Up") {
-                state.Players.Find(x => x.Name.Equals(currentPlayer)).IsReady = true;
-                bool isReady = game.PlayerReady(state);
-                if (isReady)
-                {
-                    MessageBox.Show("ALL PLAYERS READY");
-                }
+                //state.Players.Find(x => x.Name.Equals(currentPlayer)).IsReady = true;
+                game.PlayerReady(currentPlayer);
+                //if (isReady)
+                //{
+                //    MessageBox.Show("ALL PLAYERS READY");
+                //}
+                button_Join.BackColor = Color.Green;
             }
             else {
                 if (textBox_playerName.Text == "") {
@@ -108,9 +113,34 @@ namespace QuizGameClient
 
         private void updateScoreboard(GameState state)
         {
+            //updating game log
+            gameLog = new List<string>(gameLog);
+            gameLog.Add(state.LogMessage);
+            listBox1.DataSource = gameLog;
+            listBox1.Refresh();
+
+            //updating score board
             this.state = state;
             dataGridView1.DataSource = state.Players;
+
+            //if game is ready to play
+            if(state.IsReady == true)
+            {
+                MessageBox.Show("ALL PLAYERS READY");
+                button_Join.Hide();
+
+                //updating current question when host sends game state
+                QuestionLabel.Text = state.CurrentQuestion.Question;
+                AnswerAButton.Text = state.CurrentQuestion.AnswerA;
+                AnswerBButton.Text = state.CurrentQuestion.AnswerB;
+                AnswerCButton.Text = state.CurrentQuestion.AnswerC;
+                AnswerDButton.Text = state.CurrentQuestion.AnswerD;
+            }
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -41,6 +41,8 @@ namespace QuizGameClient
             this.AnswerBButton = new System.Windows.Forms.Button();
             this.AnswerCButton = new System.Windows.Forms.Button();
             this.AnswerDButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,17 +96,17 @@ namespace QuizGameClient
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(623, 80);
+            this.dataGridView1.Location = new System.Drawing.Point(623, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(165, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(165, 171);
             this.dataGridView1.TabIndex = 5;
             // 
             // label_ScoreBoard
             // 
             this.label_ScoreBoard.AutoSize = true;
             this.label_ScoreBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ScoreBoard.Location = new System.Drawing.Point(643, 53);
+            this.label_ScoreBoard.Location = new System.Drawing.Point(644, 16);
             this.label_ScoreBoard.Name = "label_ScoreBoard";
             this.label_ScoreBoard.Size = new System.Drawing.Size(126, 24);
             this.label_ScoreBoard.TabIndex = 6;
@@ -154,11 +156,33 @@ namespace QuizGameClient
             this.AnswerDButton.Text = "button6";
             this.AnswerDButton.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 42);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox1.Size = new System.Drawing.Size(165, 82);
+            this.listBox1.TabIndex = 12;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 20);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Game Log";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.AnswerDButton);
             this.Controls.Add(this.AnswerCButton);
             this.Controls.Add(this.AnswerBButton);
@@ -193,6 +217,8 @@ namespace QuizGameClient
         private System.Windows.Forms.Button AnswerBButton;
         private System.Windows.Forms.Button AnswerCButton;
         private System.Windows.Forms.Button AnswerDButton;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
