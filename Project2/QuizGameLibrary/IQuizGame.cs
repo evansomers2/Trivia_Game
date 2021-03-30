@@ -14,7 +14,7 @@ namespace QuizGameLibrary
         GameState Join(string name);
 
         [OperationContract]
-        bool PlayerReady(GameState state);
+        bool PlayerReady(string name);
 
         [OperationContract]
         QuizQuestion GetQuestion();

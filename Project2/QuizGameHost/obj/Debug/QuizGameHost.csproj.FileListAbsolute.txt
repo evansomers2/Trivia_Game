@@ -25,3 +25,13 @@ C:\Users\scull\source\repos\Project2_Quiz_Game\Project2\QuizGameHost\obj\Debug\Q
 C:\Users\scull\source\repos\Project2_Quiz_Game\Project2\QuizGameHost\obj\Debug\QuizGameHost.csproj.CopyComplete
 C:\Users\scull\source\repos\Project2_Quiz_Game\Project2\QuizGameHost\obj\Debug\QuizGameHost.exe
 C:\Users\scull\source\repos\Project2_Quiz_Game\Project2\QuizGameHost\obj\Debug\QuizGameHost.pdb
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\bin\Debug\QuizGameHost.exe.config
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\bin\Debug\QuizGameHost.exe
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\bin\Debug\QuizGameHost.pdb
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\bin\Debug\QuizGameLibrary.dll
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\bin\Debug\QuizGameLibrary.pdb
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\obj\Debug\QuizGameHost.csprojAssemblyReference.cache
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\obj\Debug\QuizGameHost.csproj.CoreCompileInputs.cache
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\obj\Debug\QuizGameHost.csproj.CopyComplete
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\obj\Debug\QuizGameHost.exe
+C:\$Info5060\projects\Project2\Project2\QuizGameHost\obj\Debug\QuizGameHost.pdb
