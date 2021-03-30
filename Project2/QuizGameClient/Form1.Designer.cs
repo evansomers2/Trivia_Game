@@ -29,7 +29,7 @@ namespace QuizGameClient
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Join = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,15 +44,15 @@ namespace QuizGameClient
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // button_Join
             // 
-            this.button1.Location = new System.Drawing.Point(340, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Connect to Quiz";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Join.Location = new System.Drawing.Point(340, 406);
+            this.button_Join.Name = "button_Join";
+            this.button_Join.Size = new System.Drawing.Size(108, 23);
+            this.button_Join.TabIndex = 0;
+            this.button_Join.Text = "Connect to Quiz";
+            this.button_Join.UseVisualStyleBackColor = true;
+            this.button_Join.Click += new System.EventHandler(this.button_Join_Click);
             // 
             // label1
             // 
@@ -109,7 +109,6 @@ namespace QuizGameClient
             this.label3.Size = new System.Drawing.Size(126, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Score Board";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // QuestionLabel
             // 
@@ -118,7 +117,6 @@ namespace QuizGameClient
             this.QuestionLabel.Size = new System.Drawing.Size(285, 21);
             this.QuestionLabel.TabIndex = 7;
             this.QuestionLabel.Text = "label4";
-            this.QuestionLabel.Click += new System.EventHandler(this.QuestionLabel_Click);
             // 
             // AnswerAButton
             // 
@@ -137,7 +135,7 @@ namespace QuizGameClient
             this.AnswerBButton.TabIndex = 9;
             this.AnswerBButton.Text = "button4";
             this.AnswerBButton.UseVisualStyleBackColor = true;
-            this.AnswerBButton.Click += new System.EventHandler(this.AnswerBButton_Click);
+            
             // 
             // AnswerCButton
             // 
@@ -173,7 +171,7 @@ namespace QuizGameClient
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_Join);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -184,7 +182,7 @@ namespace QuizGameClient
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Join;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;

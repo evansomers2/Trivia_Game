@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace QuizGameLibrary
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(ICallback))]
     public interface IQuizGame
     {
+        //[OperationContract]
+        //string ConnectToGame(string name);
+
         [OperationContract]
-        string ConnectToGame(string name);
+        bool Join(string name);
+
+        [OperationContract]
+        string[] GetUsers();
+
         [OperationContract]
         QuizQuestion GetQuestion();
     }

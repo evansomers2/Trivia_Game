@@ -12,9 +12,13 @@ namespace QuizGameLibrary
     {
         [DataMember]
         public List<Player> Players;
-        public QuizQuestion CurrentQuestion;
 
-        public GameState(int numPlayers)
+        [DataMember]
+        public QuizQuestion CurrentQuestion;
+        
+        // 
+
+        public GameState()
         {
 
         }
