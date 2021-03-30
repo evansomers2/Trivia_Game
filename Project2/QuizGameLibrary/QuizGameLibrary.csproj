@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState.cs" />
+    <Compile Include="ICallback.cs" />
     <Compile Include="IQuizGame.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
