@@ -10,14 +10,11 @@ namespace QuizGameLibrary
     [ServiceContract(CallbackContract = typeof(ICallback))]
     public interface IQuizGame
     {
-        //[OperationContract]
-        //string ConnectToGame(string name);
+        [OperationContract]
+        GameState Join(string name);
 
         [OperationContract]
-        bool Join(string name);
-
-        [OperationContract]
-        string[] GetUsers();
+        bool PlayerReady(GameState state);
 
         [OperationContract]
         QuizQuestion GetQuestion();

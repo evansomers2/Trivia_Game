@@ -14,6 +14,9 @@ namespace QuizGameLibrary
         public string Name { get; set; }
         [DataMember]
         public int Points { get; set; }
+
+        [DataMember]
+        public bool IsReady { get; set; }
         
         public Player(string name)
         {

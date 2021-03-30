@@ -30,12 +30,12 @@ namespace QuizGameClient
         private void InitializeComponent()
         {
             this.button_Join = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_enterName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_playerName = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_ScoreBoard = new System.Windows.Forms.Label();
             this.QuestionLabel = new System.Windows.Forms.Label();
             this.AnswerAButton = new System.Windows.Forms.Button();
             this.AnswerBButton = new System.Windows.Forms.Button();
@@ -54,15 +54,15 @@ namespace QuizGameClient
             this.button_Join.UseVisualStyleBackColor = true;
             this.button_Join.Click += new System.EventHandler(this.button_Join_Click);
             // 
-            // label1
+            // label_enterName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(361, 353);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Enter Name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label_enterName.AutoSize = true;
+            this.label_enterName.Location = new System.Drawing.Point(361, 353);
+            this.label_enterName.Name = "label_enterName";
+            this.label_enterName.Size = new System.Drawing.Size(63, 13);
+            this.label_enterName.TabIndex = 1;
+            this.label_enterName.Text = "Enter Name";
+            this.label_enterName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -74,12 +74,12 @@ namespace QuizGameClient
             this.label2.TabIndex = 2;
             this.label2.Text = "Trivia Game";
             // 
-            // textBox1
+            // textBox_playerName
             // 
-            this.textBox1.Location = new System.Drawing.Point(340, 380);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBox_playerName.Location = new System.Drawing.Point(340, 380);
+            this.textBox_playerName.Name = "textBox_playerName";
+            this.textBox_playerName.Size = new System.Drawing.Size(108, 20);
+            this.textBox_playerName.TabIndex = 3;
             // 
             // button2
             // 
@@ -100,15 +100,15 @@ namespace QuizGameClient
             this.dataGridView1.Size = new System.Drawing.Size(165, 358);
             this.dataGridView1.TabIndex = 5;
             // 
-            // label3
+            // label_ScoreBoard
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(643, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 24);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Score Board";
+            this.label_ScoreBoard.AutoSize = true;
+            this.label_ScoreBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ScoreBoard.Location = new System.Drawing.Point(643, 53);
+            this.label_ScoreBoard.Name = "label_ScoreBoard";
+            this.label_ScoreBoard.Size = new System.Drawing.Size(126, 24);
+            this.label_ScoreBoard.TabIndex = 6;
+            this.label_ScoreBoard.Text = "Score Board";
             // 
             // QuestionLabel
             // 
@@ -135,7 +135,6 @@ namespace QuizGameClient
             this.AnswerBButton.TabIndex = 9;
             this.AnswerBButton.Text = "button4";
             this.AnswerBButton.UseVisualStyleBackColor = true;
-            
             // 
             // AnswerCButton
             // 
@@ -165,12 +164,12 @@ namespace QuizGameClient
             this.Controls.Add(this.AnswerBButton);
             this.Controls.Add(this.AnswerAButton);
             this.Controls.Add(this.QuestionLabel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_ScoreBoard);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_playerName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_enterName);
             this.Controls.Add(this.button_Join);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -183,12 +182,12 @@ namespace QuizGameClient
         #endregion
 
         private System.Windows.Forms.Button button_Join;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_enterName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_playerName;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_ScoreBoard;
         private System.Windows.Forms.Label QuestionLabel;
         private System.Windows.Forms.Button AnswerAButton;
         private System.Windows.Forms.Button AnswerBButton;
