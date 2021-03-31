@@ -126,11 +126,6 @@ namespace QuizGameClient
             this.BeginInvoke(new GuiUpdateDelegate(updateGameLog), state);
         }
 
-        public void SendAnswer()
-        {
-            //this.BeginInvoke(new GetAnswerDelegate(checkAnswer));
-        }
-
         public void UpdateScores(GameState state)
         {
             this.BeginInvoke(new UpdateScoresDelegate(updateScoreboard), state);
