@@ -13,10 +13,12 @@ namespace QuizGameLibrary
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public int Points { get; set; }
+        public int Points { get; set; } = 0;
 
         [DataMember]
         public bool IsReady { get; set; }
+
+        public bool HasAnswered { get; set; } = false;
         
         public Player(string name)
         {

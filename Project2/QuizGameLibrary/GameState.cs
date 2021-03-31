@@ -10,11 +10,14 @@ namespace QuizGameLibrary
     [DataContract]
     public class GameState
     {
+        public List<QuizQuestion> QuizQuestions;
         [DataMember]
         public List<Player> Players;
 
         [DataMember]
         public QuizQuestion CurrentQuestion;
+
+        
 
         [DataMember]
         public bool IsReady;
@@ -25,6 +28,7 @@ namespace QuizGameLibrary
         public GameState()
         {
             Players = new List<Player>();
+            QuizQuestions = new List<QuizQuestion>();
             IsReady = false;
         }
     }

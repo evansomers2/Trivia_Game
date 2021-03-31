@@ -18,5 +18,11 @@ namespace QuizGameLibrary
 
         [OperationContract]
         QuizQuestion GetQuestion();
+
+        [OperationContract]
+        int CheckAnswer(string answer, string name);
+
+        [OperationContract]
+        void Disconnect(string name);
     }
 }

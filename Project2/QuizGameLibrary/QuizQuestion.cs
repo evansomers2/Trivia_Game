@@ -21,7 +21,7 @@ namespace QuizGameLibrary
         [DataMember]
         public string AnswerD { get; set; }
 
-        private string CorrectAnswer { get; set; }
+        public string CorrectAnswer { get; set; }
 
         public QuizQuestion(string question, string answera, string answerb, string answerc, string answerd, string correct)
         {
@@ -33,21 +33,15 @@ namespace QuizGameLibrary
             CorrectAnswer = correct;
         }
 
-        public bool CheckAnswer(string answer)
+        public bool IsCorrectAnswer(string answer)
         {
-            switch (CorrectAnswer)
+            if(CorrectAnswer == answer)
             {
-                case "A":
-                    if (AnswerA == answer) return true; else return false;
-                case "B":
-                    if (AnswerB == answer) return true; else return false;
-                case "C":
-                    if (AnswerC == answer) return true; else return false;
-                case "D":
-                    if (AnswerD == answer) return true; else return false;
-                default:
-                    return false;
-
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
