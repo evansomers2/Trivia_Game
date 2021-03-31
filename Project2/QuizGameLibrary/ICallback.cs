@@ -13,8 +13,6 @@ namespace QuizGameLibrary
         [OperationContract(IsOneWay = true)]
         void SendAllMessages(GameState state);
         [OperationContract(IsOneWay = true)]
-        void SendAnswer();
-        [OperationContract(IsOneWay = true)]
         void UpdateScores(GameState state);
         [OperationContract(IsOneWay = true)]
         void GameOver(string name);
