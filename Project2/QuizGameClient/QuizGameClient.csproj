@@ -72,6 +72,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="testform.resx">
       <DependentUpon>testform.cs</DependentUpon>
@@ -94,6 +95,12 @@
       <Project>{0a738bc2-a62b-453b-993c-6ac1f0159905}</Project>
       <Name>QuizGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quizLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quiztime.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

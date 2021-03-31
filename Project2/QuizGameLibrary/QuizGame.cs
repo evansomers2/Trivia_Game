@@ -22,6 +22,7 @@ namespace QuizGameLibrary
         private Dictionary<string, ICallback> callbacks = new Dictionary<string, ICallback>();
         private List<string> messages = new List<string>();
 
+        // Constructor
         public QuizGame()
         {
             //Players = new List<Player>();
@@ -31,6 +32,7 @@ namespace QuizGameLibrary
             Questions = ParseQuestions();
         }
 
+        // Join
         public GameState Join(string name)
         {
             if (callbacks.ContainsKey(name.ToUpper())) {
@@ -173,18 +175,37 @@ namespace QuizGameLibrary
                     state.CurrentQuestion = GetQuestion();
                     currentQuestionNumber++;
                     RoundCallback();
-
                 }
 
                 int WinningScore = state.Players.Max(x => x.Points);
                 List<Player> winners = state.Players.FindAll(x => x.Points == WinningScore);
+
+                // Check if there is a tie
                 if (winners.Count > 1)
                 {
                     state.LogMessage = "There is a tie!";
                     updateAllUsers();
+                    foreach (ICallback cb in callbacks.Values) {
+                        state.LogMessage = "Game Over!";
+                        state.IsReady = false;
+                        updateAllUsers();
 
+                    }
+
+                    string string_winners = "";
+                    foreach (var winner in winners)
+                    {
+                        string_winners += winner.Name + ",";
+                    }
+                   
+                    foreach (ICallback cb in callbacks.Values) {
+                        state.LogMessage = "Game Over!";
+                        state.IsReady = false;
+                        updateAllUsers();
+                        cb.GameOver(string_winners);
+                    }
                 }
-                else
+                else // there is only 1 winner
                 {
                     state.LogMessage = "The winner is: " + winners[0].Name;
                     updateAllUsers();
