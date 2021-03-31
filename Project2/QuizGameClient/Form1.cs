@@ -1,15 +1,9 @@
 ﻿using QuizGameLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace QuizGameClient
 {
@@ -34,8 +28,6 @@ namespace QuizGameClient
 
             // Activate a MessageBoard object
             game = channel.CreateChannel();
-            //state = new GameState();
-            //state.Players = new List<Player>();
             gameLog = new List<string>();
 
             gameLog.Add("Welcome to the Trivia Game!");
@@ -49,11 +41,6 @@ namespace QuizGameClient
             AnswerDButton.Hide();
             listBox1.Hide();
             label1.Hide();
-            ///dataGridView1.DataSource = state.Players;
-            //DataGridViewColumn column1 = dataGridView1.Columns[0];
-            //column1.Width = 80;
-            //DataGridViewColumn column2 = dataGridView1.Columns[1];
-            //column2.Width = 80;
         }
 
         // Username join
@@ -61,12 +48,7 @@ namespace QuizGameClient
         {
 
             if (button_Join.Text == "Ready Up") {
-                //state.Players.Find(x => x.Name.Equals(currentPlayer)).IsReady = true;
                 game.PlayerReady(currentPlayer);
-                //if (isReady)
-                //{
-                //    MessageBox.Show("ALL PLAYERS READY");
-                //}
                 button_Join.BackColor = Color.Green;
             }
             else {
@@ -93,13 +75,14 @@ namespace QuizGameClient
                     // Hide stuff
                     label_enterName.Hide();
                     textBox_playerName.Hide();
+                    mainImage.Hide();
 
                     // Show stuff
                     label_ScoreBoard.Show();
                     dataGridView1.Show();
                     button_Join.Text = "Ready Up";
                     dataGridView1.Show();
- 
+                    label_Title.Text += ":\t" + currentPlayer;
                     listBox1.Show();
                     label1.Show();
                 }
@@ -133,8 +116,7 @@ namespace QuizGameClient
 
         public void updateScoreboard(GameState state)
         {
-            if (playerScore < state.Players.Find(player => player.Name == currentPlayer).Points)
-            {
+            if (playerScore < state.Players.Find(player => player.Name == currentPlayer).Points) {
                 gameLog = new List<string>(gameLog);
                 gameLog.Add("Correct Answer! +5 Points");
                 listBox1.DataSource = gameLog;
@@ -142,7 +124,7 @@ namespace QuizGameClient
                 listBox1.TopIndex = listBox1.Items.Count - 1;
                 playerScore = state.Players.Find(player => player.Name == currentPlayer).Points;
                 //updating score board
-                this.state = state; 
+                this.state = state;
             }
             dataGridView1.DataSource = state.Players;
             dataGridView1.Refresh();
@@ -165,14 +147,33 @@ namespace QuizGameClient
 
         public void GameOver(string name)
         {
-            //does not work, supposed to set selected index to winner
-            //foreach(Player item in listBox1.Items)
-            //{
-            //    if(item.Name == name)
-            //    {
-            //        listBox1.SelectedIndex = listBox1.Items.IndexOf(item); 
-            //    }
-            //}
+            // Check if there is a tie
+            string[] tiedPlayers = { };
+            try {
+                tiedPlayers = name.Split(',');
+            }
+            catch (Exception e) {
+                // do nothing
+            }
+
+            if (tiedPlayers.Length > 1) {
+                string output = "";
+                if (tiedPlayers.Length > 1) {
+                    output += (tiedPlayers.Length - 1) + " way tie between players: \n";
+                    foreach (var p in tiedPlayers)
+                        output += "- " + p + "\n";
+
+                    output = output.Remove(output.Length - 3);
+                }
+                MessageBox.Show(output);
+            }
+            else {
+                if (name.Equals(currentPlayer))
+                    MessageBox.Show("WINNER WINNER CHICKEN DINNER!");
+                else
+                    MessageBox.Show(name + " HAS WON THE CHICKEN DINNER");
+            }
+
             this.BeginInvoke(new GameOverDelegate(ClearQuestions), name);
         }
 
@@ -187,20 +188,17 @@ namespace QuizGameClient
 
         private void updateGameLog(GameState state)
         {
-            if (state.LogMessage.Contains("disconnected"))
-            {
+            if (state.LogMessage.Contains("disconnected")) {
                 dataGridView1.DataSource = state.Players;
                 dataGridView1.Refresh();
             }
-            if (state.LogMessage == "clear")
-            {
+            if (state.LogMessage == "clear") {
                 gameLog = new List<string>();
                 listBox1.DataSource = gameLog;
                 listBox1.Refresh();
                 listBox1.TopIndex = listBox1.Items.Count - 1;
             }
-            else if (!gameLog.Contains(state.LogMessage))
-            {
+            else if (!gameLog.Contains(state.LogMessage)) {
                 //updating game log
                 gameLog = new List<string>(gameLog);
                 gameLog.Add(state.LogMessage);
@@ -208,14 +206,9 @@ namespace QuizGameClient
                 listBox1.Refresh();
                 listBox1.TopIndex = listBox1.Items.Count - 1;
             }
-            
-            
-            
 
-            
             //if game is ready to play
-            if(state.IsReady == true)
-            {
+            if (state.IsReady == true) {
                 button_Join.Hide();
                 dataGridView1.Show();
                 QuestionLabel.Show();
@@ -224,8 +217,7 @@ namespace QuizGameClient
                 AnswerCButton.Show();
                 AnswerDButton.Show();
                 //updating current question when host sends game state
-                if (state.CurrentQuestion != null)
-                {
+                if (state.CurrentQuestion != null) {
                     QuestionLabel.Text = state.CurrentQuestion.Question;
                     AnswerAButton.Text = state.CurrentQuestion.AnswerA;
                     AnswerBButton.Text = state.CurrentQuestion.AnswerB;
@@ -235,35 +227,36 @@ namespace QuizGameClient
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void AnswerAButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "A";
-            
-            AnswerAButton.BackColor = Color.LightGreen;
+
+            AnswerAButton.BackColor = Color.DarkOrange;
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
             AnswerCButton.Enabled = false;
             AnswerDButton.Enabled = false;
             //updating game log
             gameLog = new List<string>(gameLog);
-            gameLog.Add("Answer " + "'"+AnswerAButton.Text+"'" + " selected");
+            gameLog.Add("Answer " + "'" + AnswerAButton.Text + "'" + " selected");
             listBox1.DataSource = gameLog;
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
             int score = game.CheckAnswer(selectedAnswer, currentPlayer);
-            
+
+            // Set the button to red
+            if (score == 0)
+                AnswerAButton.BackColor = Color.Red;
+            else
+                AnswerCButton.BackColor = Color.LightGreen;
+
         }
 
         private void AnswerCButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "C";
-            AnswerCButton.BackColor = Color.LightGreen;
+            AnswerCButton.BackColor = Color.DarkOrange;
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
             AnswerCButton.Enabled = false;
@@ -275,13 +268,19 @@ namespace QuizGameClient
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
             int score = game.CheckAnswer(selectedAnswer, currentPlayer);
+
+            // Set the button to red
+            if (score == 0)
+                AnswerCButton.BackColor = Color.Red;
+            else
+                AnswerCButton.BackColor = Color.LightGreen;
         }
 
         private void AnswerDButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "D";
             game.CheckAnswer(selectedAnswer, currentPlayer);
-            AnswerDButton.BackColor = Color.LightGreen;
+            AnswerDButton.BackColor = Color.DarkOrange;
 
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
@@ -294,13 +293,19 @@ namespace QuizGameClient
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
             int score = game.CheckAnswer(selectedAnswer, currentPlayer);
+
+            // Set the button to red
+            if (score == 0)
+                AnswerDButton.BackColor = Color.Red;
+            else
+                AnswerDButton.BackColor = Color.LightGreen;
         }
 
         private void AnswerBButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "B";
             game.CheckAnswer(selectedAnswer, currentPlayer);
-            AnswerBButton.BackColor = Color.LightGreen;
+            AnswerBButton.BackColor = Color.DarkOrange;
 
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
@@ -312,18 +317,19 @@ namespace QuizGameClient
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-            game.CheckAnswer(selectedAnswer, currentPlayer);
-            
-        }
+            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
 
-        private void QuestionLabel_Click(object sender, EventArgs e)
-        {
-
+            // Set the button to red
+            if (score == 0)
+                AnswerBButton.BackColor = Color.Red;
+            else
+                AnswerBButton.BackColor = Color.LightGreen;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             game.Disconnect(currentPlayer);
         }
+
     }
 }

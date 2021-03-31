@@ -31,7 +31,7 @@ namespace QuizGameClient
         {
             this.button_Join = new System.Windows.Forms.Button();
             this.label_enterName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_Title = new System.Windows.Forms.Label();
             this.textBox_playerName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label_ScoreBoard = new System.Windows.Forms.Label();
@@ -42,7 +42,9 @@ namespace QuizGameClient
             this.AnswerDButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.mainImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainImage)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Join
@@ -65,15 +67,15 @@ namespace QuizGameClient
             this.label_enterName.Text = "Enter Name";
             this.label_enterName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
+            // label_Title
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(307, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 31);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Trivia Game";
+            this.label_Title.AutoSize = true;
+            this.label_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Title.Location = new System.Drawing.Point(307, 9);
+            this.label_Title.Name = "label_Title";
+            this.label_Title.Size = new System.Drawing.Size(172, 31);
+            this.label_Title.TabIndex = 2;
+            this.label_Title.Text = "Trivia Game";
             // 
             // textBox_playerName
             // 
@@ -111,7 +113,6 @@ namespace QuizGameClient
             this.QuestionLabel.Size = new System.Drawing.Size(644, 21);
             this.QuestionLabel.TabIndex = 7;
             this.QuestionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.QuestionLabel.Click += new System.EventHandler(this.QuestionLabel_Click);
             // 
             // AnswerAButton
             // 
@@ -157,7 +158,6 @@ namespace QuizGameClient
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox1.Size = new System.Drawing.Size(268, 173);
             this.listBox1.TabIndex = 12;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -169,11 +169,24 @@ namespace QuizGameClient
             this.label1.TabIndex = 13;
             this.label1.Text = "Game Log";
             // 
+            // mainImage
+            // 
+            this.mainImage.BackgroundImage = global::QuizGameClient.Properties.Resources.quiztime;
+            this.mainImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainImage.InitialImage = global::QuizGameClient.Properties.Resources.quizLogo;
+            this.mainImage.Location = new System.Drawing.Point(-6, 0);
+            this.mainImage.Name = "mainImage";
+            this.mainImage.Size = new System.Drawing.Size(806, 349);
+            this.mainImage.TabIndex = 14;
+            this.mainImage.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mainImage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.AnswerDButton);
@@ -184,13 +197,14 @@ namespace QuizGameClient
             this.Controls.Add(this.label_ScoreBoard);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox_playerName);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_Title);
             this.Controls.Add(this.label_enterName);
             this.Controls.Add(this.button_Join);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +214,7 @@ namespace QuizGameClient
 
         private System.Windows.Forms.Button button_Join;
         private System.Windows.Forms.Label label_enterName;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_Title;
         private System.Windows.Forms.TextBox textBox_playerName;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label_ScoreBoard;
@@ -211,6 +225,7 @@ namespace QuizGameClient
         private System.Windows.Forms.Button AnswerDButton;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox mainImage;
     }
 }
 
