@@ -176,7 +176,7 @@ namespace QuizGameClient
             this.mainImage.InitialImage = global::QuizGameClient.Properties.Resources.quizLogo;
             this.mainImage.Location = new System.Drawing.Point(-6, 0);
             this.mainImage.Name = "mainImage";
-            this.mainImage.Size = new System.Drawing.Size(806, 349);
+            this.mainImage.Size = new System.Drawing.Size(806, 361);
             this.mainImage.TabIndex = 14;
             this.mainImage.TabStop = false;
             // 
