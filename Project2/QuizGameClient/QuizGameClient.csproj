@@ -102,5 +102,11 @@
   <ItemGroup>
     <None Include="Resources\quiztime.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youlose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youwin.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

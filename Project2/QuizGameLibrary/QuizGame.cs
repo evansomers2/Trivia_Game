@@ -250,13 +250,13 @@ namespace QuizGameLibrary
         }
 
         //not currently used
-        public void GetAnswers()
-        {
-            foreach (ICallback cb in callbacks.Values)
-            {
-                cb.SendAnswer();
-            }
-        }
+        //public void GetAnswers()
+        //{
+        //    foreach (ICallback cb in callbacks.Values)
+        //    {
+        //        cb.SendAnswer();
+        //    }
+        //}
 
         //CHECKING ANSWERS
         public int CheckAnswer(string answer, string name)
