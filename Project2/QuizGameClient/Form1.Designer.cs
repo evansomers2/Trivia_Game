@@ -171,9 +171,9 @@ namespace QuizGameClient
             // 
             // mainImage
             // 
-            this.mainImage.BackgroundImage = global::QuizGameClient.Properties.Resources.quiztime;
+            //this.mainImage.BackgroundImage = global::QuizGameClient.Properties.Resources.quiztime;
             this.mainImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainImage.InitialImage = global::QuizGameClient.Properties.Resources.quizLogo;
+            //this.mainImage.InitialImage = global::QuizGameClient.Properties.Resources.quizLogo;
             this.mainImage.Location = new System.Drawing.Point(-6, 0);
             this.mainImage.Name = "mainImage";
             this.mainImage.Size = new System.Drawing.Size(806, 361);

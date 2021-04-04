@@ -167,7 +167,7 @@ namespace QuizGameClient
                     output = output.Remove(output.Length - 3);
                 }
 
-                label_ScoreBoard.Hide();
+                //label_ScoreBoard.Hide();
                 SetText(output);
             }
             else {
@@ -324,8 +324,8 @@ namespace QuizGameClient
         private async void AnswerBButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "B";
+
             int score = game.CheckAnswer(selectedAnswer, currentPlayer);
-            
             AnswerBButton.BackColor = Color.DarkOrange;
 
             AnswerAButton.Enabled = false;
@@ -340,7 +340,7 @@ namespace QuizGameClient
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-
+            
             if (score != 0)
             {
                 SetText("Correct");
@@ -391,6 +391,7 @@ namespace QuizGameClient
                 this.label1.Text = text;
             }
         }
+
 
     }
 }
