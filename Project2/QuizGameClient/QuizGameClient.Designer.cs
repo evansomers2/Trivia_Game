@@ -1,7 +1,7 @@
 ﻿
 namespace QuizGameClient
 {
-    partial class Form1
+    partial class QuizGameClient
     {
         /// <summary>
         /// Required designer variable.

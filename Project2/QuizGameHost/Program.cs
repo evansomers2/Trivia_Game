@@ -16,12 +16,8 @@ namespace QuizGameHost
 
             try
             {
-                // Register the service Address
-                //servHost = new ServiceHost(typeof(Shoe), new Uri("net.tcp://localhost:13200/CardsLibrary/"));
 
-                // Register the service Contract and Binding
-                //servHost.AddServiceEndpoint(typeof(IShoe), new NetTcpBinding(), "ShoeService");
-
+                //creating the service host with the QuizGame object
                 servHost = new ServiceHost(typeof(QuizGame));
                 // Run the service
                 servHost.Open();
