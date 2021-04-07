@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.ServiceModel;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace QuizGameClient
 {
@@ -82,7 +83,7 @@ namespace QuizGameClient
                     dataGridView1.Show();
                     button_Join.Text = "Ready Up";
                     dataGridView1.Show();
-                    label_Title.Text += ":\t" + currentPlayer;
+                    label_Title.Text += ":    " + currentPlayer;
                     listBox1.Show();
                     label1.Show();
                 }
@@ -159,19 +160,24 @@ namespace QuizGameClient
             if (tiedPlayers.Length > 1) {
                 string output = "";
                 if (tiedPlayers.Length > 1) {
-                    output += (tiedPlayers.Length - 1) + " way tie between players: \n";
+                    output += (tiedPlayers.Length - 1) + " way tie between players: ";
                     foreach (var p in tiedPlayers)
-                        output += "- " + p + "\n";
+                        output += "- " + p + " ";
 
                     output = output.Remove(output.Length - 3);
                 }
-                MessageBox.Show(output);
+
+                //label_ScoreBoard.Hide();
+                SetText(output);
             }
             else {
-                if (name.Equals(currentPlayer))
-                    MessageBox.Show("WINNER WINNER CHICKEN DINNER!");
-                else
-                    MessageBox.Show(name + " HAS WON THE CHICKEN DINNER");
+
+                if (name.Equals(currentPlayer)){
+                    SetText("YOU WIN!");
+                }
+                else{
+                    SetText("YOU LOSE!");
+                }
             }
 
             this.BeginInvoke(new GameOverDelegate(ClearQuestions), name);
@@ -212,10 +218,7 @@ namespace QuizGameClient
                 button_Join.Hide();
                 dataGridView1.Show();
                 QuestionLabel.Show();
-                AnswerAButton.Show();
-                AnswerBButton.Show();
-                AnswerCButton.Show();
-                AnswerDButton.Show();
+ 
                 //updating current question when host sends game state
                 if (state.CurrentQuestion != null) {
                     QuestionLabel.Text = state.CurrentQuestion.Question;
@@ -223,19 +226,26 @@ namespace QuizGameClient
                     AnswerBButton.Text = state.CurrentQuestion.AnswerB;
                     AnswerCButton.Text = state.CurrentQuestion.AnswerC;
                     AnswerDButton.Text = state.CurrentQuestion.AnswerD;
+                    AnswerAButton.Show();
+                    AnswerBButton.Show();
+                    AnswerCButton.Show();
+                    AnswerDButton.Show();
                 }
             }
         }
 
-        private void AnswerAButton_Click(object sender, EventArgs e)
+        private async void AnswerAButton_Click(object sender, EventArgs e)
         {
+
             selectedAnswer = "A";
 
+            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
             AnswerAButton.BackColor = Color.DarkOrange;
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
             AnswerCButton.Enabled = false;
             AnswerDButton.Enabled = false;
+
             //updating game log
             gameLog = new List<string>(gameLog);
             gameLog.Add("Answer " + "'" + AnswerAButton.Text + "'" + " selected");
@@ -243,19 +253,23 @@ namespace QuizGameClient
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
-
-            // Set the button to red
-            if (score == 0)
+            if (score != 0) {
+                SetText("Correct");
+                AnswerAButton.BackColor = Color.LightGreen;
+            }
+            else {
+                SetText("Incorrect");
                 AnswerAButton.BackColor = Color.Red;
-            else
-                AnswerCButton.BackColor = Color.LightGreen;
+            }
 
         }
 
-        private void AnswerCButton_Click(object sender, EventArgs e)
+        private async void AnswerCButton_Click(object sender, EventArgs e)
         {
+
             selectedAnswer = "C";
+            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
+
             AnswerCButton.BackColor = Color.DarkOrange;
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
@@ -267,19 +281,24 @@ namespace QuizGameClient
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
 
-            // Set the button to red
-            if (score == 0)
-                AnswerCButton.BackColor = Color.Red;
-            else
+            if (score != 0) {
+                SetText("Correct");
                 AnswerCButton.BackColor = Color.LightGreen;
+            }
+            else {
+                SetText("Incorrect");
+                AnswerCButton.BackColor = Color.Red;
+            }
         }
 
-        private void AnswerDButton_Click(object sender, EventArgs e)
+        private async void AnswerDButton_Click(object sender, EventArgs e)
         {
+            //if (AnswerDButton.Text.Equals(""))
+            //    return;
+
             selectedAnswer = "D";
-            game.CheckAnswer(selectedAnswer, currentPlayer);
+            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
             AnswerDButton.BackColor = Color.DarkOrange;
 
             AnswerAButton.Enabled = false;
@@ -292,44 +311,87 @@ namespace QuizGameClient
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
-
-            // Set the button to red
-            if (score == 0)
-                AnswerDButton.BackColor = Color.Red;
-            else
+            if (score != 0) {
+                SetText("Correct");
                 AnswerDButton.BackColor = Color.LightGreen;
+            }
+            else {
+                SetText("Incorrect");
+                AnswerDButton.BackColor = Color.Red;
+            }
         }
 
-        private void AnswerBButton_Click(object sender, EventArgs e)
+        private async void AnswerBButton_Click(object sender, EventArgs e)
         {
             selectedAnswer = "B";
-            game.CheckAnswer(selectedAnswer, currentPlayer);
+
+            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
             AnswerBButton.BackColor = Color.DarkOrange;
 
             AnswerAButton.Enabled = false;
             AnswerBButton.Enabled = false;
             AnswerCButton.Enabled = false;
             AnswerDButton.Enabled = false;
+            
             gameLog = new List<string>(gameLog);
             gameLog.Add("Answer " + "'" + AnswerBButton.Text + "'" + " selected");
+            
             listBox1.DataSource = gameLog;
             listBox1.Refresh();
             listBox1.TopIndex = listBox1.Items.Count - 1;
 
-            int score = game.CheckAnswer(selectedAnswer, currentPlayer);
-
-            // Set the button to red
-            if (score == 0)
-                AnswerBButton.BackColor = Color.Red;
-            else
+            
+            if (score != 0)
+            {
+                SetText("Correct");
                 AnswerBButton.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                SetText("Incorrect");
+                AnswerBButton.BackColor = Color.Red;
+            } 
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             game.Disconnect(currentPlayer);
         }
+
+        private int checkAnswer(string selectedAnswer, string currentPlayer)
+        {
+            return game.CheckAnswer(selectedAnswer, currentPlayer);
+        }
+
+        // This delegate enables asynchronous calls for setting
+        // the text property on a TextBox control.
+        delegate void SetTextCallback(string text);
+
+        // This method demonstrates a pattern for making thread-safe
+        // calls on a Windows Forms control. 
+        //
+        // If the calling thread is different from the thread that
+        // created the TextBox control, this method creates a
+        // SetTextCallback and calls itself asynchronously using the
+        // Invoke method.
+        //
+        // If the calling thread is the same as the thread that created
+        // the TextBox control, the Text property is set directly. 
+
+        private void SetText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.label1.InvokeRequired) {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+            }
+            else {
+                this.label1.Text = text;
+            }
+        }
+
 
     }
 }
