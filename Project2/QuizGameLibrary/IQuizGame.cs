@@ -29,7 +29,11 @@ namespace QuizGameLibrary
         //method for checking answers
         [OperationContract]
         int CheckAnswer(string answer, string name);
-        
+
+        //method for getting the answer
+        [OperationContract]
+        string GetCorrectAnswer();
+
         //a method for disconnecting
         [OperationContract]
         void Disconnect(string name);

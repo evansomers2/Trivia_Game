@@ -287,12 +287,15 @@ namespace QuizGameClient
             if (score != 0) {
                 SetText("Correct");
                 AnswerAButton.BackColor = Color.LightGreen;
+
             }
             else {
                 SetText("Incorrect");
                 AnswerAButton.BackColor = Color.Red;
+           
             }
 
+            printAnswer();
         }
 
         //answer c button click method
@@ -325,6 +328,7 @@ namespace QuizGameClient
                 SetText("Incorrect");
                 AnswerCButton.BackColor = Color.Red;
             }
+            printAnswer();
         }
 
         //answer d button click method
@@ -356,6 +360,7 @@ namespace QuizGameClient
                 SetText("Incorrect");
                 AnswerDButton.BackColor = Color.Red;
             }
+            printAnswer();
         }
 
         //answer b button click method
@@ -390,7 +395,8 @@ namespace QuizGameClient
             {
                 SetText("Incorrect");
                 AnswerBButton.BackColor = Color.Red;
-            } 
+            }
+            printAnswer();
         }
 
 
@@ -430,6 +436,22 @@ namespace QuizGameClient
             }
         }
 
-
+        private void printAnswer()
+        {
+            string correctAnswer = game.GetCorrectAnswer();
+            if (correctAnswer.Equals("A")) {
+                correctAnswer = AnswerAButton.Text;
+            }
+            if (correctAnswer.Equals("B")) {
+                correctAnswer = AnswerBButton.Text;
+            }
+            if (correctAnswer.Equals("C")) {
+                correctAnswer = AnswerCButton.Text;
+            }
+            if (correctAnswer.Equals("D")) {
+                correctAnswer = AnswerDButton.Text;
+            }
+            gameLog.Add($"Correct answer is: \'" + correctAnswer + "\'");
+        }
     }
 }
