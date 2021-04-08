@@ -171,16 +171,15 @@ namespace QuizGameClient
             // 
             // mainImage
             // 
-            //this.mainImage.BackgroundImage = global::QuizGameClient.Properties.Resources.quiztime;
+            this.mainImage.BackgroundImage = global::QuizGameClient.Properties.Resources.quiztime;
             this.mainImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.mainImage.InitialImage = global::QuizGameClient.Properties.Resources.quizLogo;
             this.mainImage.Location = new System.Drawing.Point(-6, 0);
             this.mainImage.Name = "mainImage";
             this.mainImage.Size = new System.Drawing.Size(806, 361);
             this.mainImage.TabIndex = 14;
             this.mainImage.TabStop = false;
             // 
-            // Form1
+            // QuizGameClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,8 +199,8 @@ namespace QuizGameClient
             this.Controls.Add(this.label_Title);
             this.Controls.Add(this.label_enterName);
             this.Controls.Add(this.button_Join);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "QuizGameClient";
+            this.Text = "Trivia Game";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainImage)).EndInit();

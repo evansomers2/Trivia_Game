@@ -52,7 +52,7 @@ namespace QuizGameLibrary
 
                 // Save alias and callback proxy
                 callbacks.Add(name.ToUpper(), cb);
-                
+
                 this.state.Players.Add(new Player(name.ToUpper()));
                 //setting state log message for clients to receive
                 state.LogMessage = name + " has connected!";
@@ -69,10 +69,8 @@ namespace QuizGameLibrary
         {
             //removing the player from the callback list
             string disconnectedPlayerName = "";
-            foreach (var cb in callbacks)
-            {
-                if (cb.Key == name)
-                {
+            foreach (var cb in callbacks) {
+                if (cb.Key == name) {
                     disconnectedPlayerName = cb.Key;
 
                 }
@@ -83,10 +81,8 @@ namespace QuizGameLibrary
 
             //removing the player from the game state list of players
             Player disconnectedPlayer = null;
-            foreach (var player in state.Players)
-            {
-                if (player.Name == name)
-                {
+            foreach (var player in state.Players) {
+                if (player.Name == name) {
                     disconnectedPlayer = player;
                 }
             }
@@ -109,8 +105,7 @@ namespace QuizGameLibrary
         private void updateAllScoreBoards()
         {
             //for all callbacks update scores
-            foreach (ICallback cb in callbacks.Values)
-            {
+            foreach (ICallback cb in callbacks.Values) {
                 cb.UpdateScores(state);
             }
         }
@@ -131,12 +126,11 @@ namespace QuizGameLibrary
                     var values = line.Split(',');
                     if (values.Length != 6)
                         continue;
-                    else
-                    {
+                    else {
                         //adding questions to list of questions
                         questions.Add(new QuizQuestion(values[0], values[1], values[2], values[3], values[4], values[5]));
                     }
-                    
+
                 }
                 return questions;
             }
@@ -149,12 +143,11 @@ namespace QuizGameLibrary
             Random random = new Random();
 
             //get 50 questions to cycle through for the game
-            for (int i = 0; i < 50; i++)
-            {
+            for (int i = 0; i < 50; i++) {
                 int rand = random.Next(0, Questions.Count - 1);
 
                 //check if the question is already in the list
-                while(state.QuizQuestions.Contains(Questions[rand]))
+                while (state.QuizQuestions.Contains(Questions[rand]))
                     rand = random.Next(0, Questions.Count - 1);
 
                 //add the questions to the game state
@@ -174,14 +167,12 @@ namespace QuizGameLibrary
         //this callback method is called once every second for 10 seconds to countdown the start of the game
         public void CountDownCallback()
         {
-            if(timeToStart == 0)
-            {
+            if (timeToStart == 0) {
                 //dispose of the timer
                 timer.Dispose();
 
                 //GAME STARTS HERE there is 2 rounds
-                for (int i = 0; i < 2; i++)
-                {
+                for (int i = 0; i < 2; i++) {
                     //setting the log message
                     state.LogMessage = "Question #" + currentQuestionNumber;
                     Console.WriteLine("Getting new question");
@@ -201,16 +192,14 @@ namespace QuizGameLibrary
                 List<Player> winners = state.Players.FindAll(x => x.Points == WinningScore);
 
                 // Check if there is a tie
-                if (winners.Count > 1)
-                {
+                if (winners.Count > 1) {
                     state.LogMessage = "There is a tie!";
 
                     //update all clients with the log message
                     updateAllUsers();
 
                     //update all clients that the game is over
-                    foreach (ICallback cb in callbacks.Values)
-                    {
+                    foreach (ICallback cb in callbacks.Values) {
                         state.LogMessage = "Game Over!";
                         state.IsReady = false;
                         updateAllUsers();
@@ -218,14 +207,12 @@ namespace QuizGameLibrary
 
                     //getting the winners names
                     string string_winners = "";
-                    foreach (var winner in winners)
-                    {
+                    foreach (var winner in winners) {
                         string_winners += winner.Name + ",";
                     }
 
                     //update all clients that the game is over
-                    foreach (ICallback cb in callbacks.Values)
-                    {
+                    foreach (ICallback cb in callbacks.Values) {
                         state.LogMessage = "Game Over!";
                         state.IsReady = false;
                         updateAllUsers();
@@ -240,8 +227,7 @@ namespace QuizGameLibrary
 
                     //updating all clients that  the game is over
                     updateAllUsers();
-                    foreach (ICallback cb in callbacks.Values)
-                    {
+                    foreach (ICallback cb in callbacks.Values) {
                         state.LogMessage = "Game Over!";
                         state.IsReady = false;
                         updateAllUsers();
@@ -249,21 +235,20 @@ namespace QuizGameLibrary
                     }
                 }
             }
-            else
-            {
+            else {
                 //get question to send to all clients
                 state.LogMessage = timeToStart.ToString();
                 timeToStart--;
                 //update all clients
                 updateAllUsers();
             }
-            
+
         }
-        
+
         //ROUND CALLBACK
         //this callback method is called every round start
         public void RoundCallback()
-        {       
+        {
             //update the clients
             updateAllUsers();
 
@@ -273,14 +258,12 @@ namespace QuizGameLibrary
             //the clients all send in their answers and the scores are calculated
 
             //update all scoreboards
-            foreach (var cb in callbacks)
-            {
+            foreach (var cb in callbacks) {
                 cb.Value.UpdateScores(state);
             }
 
             //reseting the hasanswered bool for all players
-            foreach (Player player in state.Players)
-            {
+            foreach (Player player in state.Players) {
                 player.HasAnswered = false;
             }
         }
@@ -290,20 +273,15 @@ namespace QuizGameLibrary
         public int CheckAnswer(string answer, string name)
         {
             //for each player in the game
-            foreach(Player player in state.Players)
-            {
+            foreach (Player player in state.Players) {
                 //if the given name is the players name
-                if(player.Name == name)
-                {
+                if (player.Name == name) {
                     //checking if their answer matches the correct answer
-                    if(state.CurrentQuestion.IsCorrectAnswer(answer))
-                    {
-                        if(player.HasAnswered == true)
-                        {
+                    if (state.CurrentQuestion.IsCorrectAnswer(answer)) {
+                        if (player.HasAnswered == true) {
                             break;
                         }
-                        else
-                        {
+                        else {
                             //correct answer increments score by 5
                             Console.WriteLine("CORRECT ANSWER");
                             player.Points = player.Points + 5;
@@ -311,16 +289,21 @@ namespace QuizGameLibrary
 
                             //returning the players score
                             return player.Points;
-                        }  
+                        }
                     }
-                    else
-                    {
+                    else {
                         player.HasAnswered = true;
                     }
                 }
             }
             //return score of 0 if the player is not found
             return 0;
+        }
+
+        // GET CORRECT ANSWSER
+        public string GetCorrectAnswer()
+        {
+            return state.CurrentQuestion.CorrectAnswer;
         }
 
         //READY UP METHOD
@@ -330,26 +313,23 @@ namespace QuizGameLibrary
             //setting the player to ready based off their name
 
             //checking if all players are ready
-            foreach(Player player in state.Players)
-            {
-                if(name == player.Name)
-                {
+            foreach (Player player in state.Players) {
+                if (name == player.Name) {
                     player.IsReady = true;
-                    
+
                 }
             }
-            
+
             // Check if all players are ready
             //bool isReady = true;
             state.IsReady = true;
-            foreach (var p in state.Players){
+            foreach (var p in state.Players) {
                 if (!p.IsReady)
                     state.IsReady = false;
             }
-            
+
             //if all players are ready and the game is ready to start, start the game
-            if (state.IsReady)
-            {
+            if (state.IsReady) {
                 state.LogMessage = "All Players have readied up!";
                 //update all clients
                 updateAllUsers();
@@ -357,8 +337,7 @@ namespace QuizGameLibrary
                 Console.WriteLine("ALL USERS ARE READY");
                 return true;
             }
-            else
-            {
+            else {
                 //setting state log message for clients to receive
                 state.LogMessage = name + " has readied up!";
                 //update all clients
